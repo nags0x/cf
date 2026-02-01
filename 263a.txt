@@ -1,0 +1,51 @@
+// 0 0 0 0 0
+// 0 0 0 0 1
+// 0 0 0 0 0
+// 0 0 0 0 0
+// 0 0 0 0 0
+// 3
+//rows x cols are numbered from 1, n
+//swaps possible a) (i, i+1) b) (j, j+1)
+
+
+// 0 0 0 0 0
+// 0 0 0 0 0
+// 0 0 0 0 0//[2,1] -> [2,2]//1
+// 0 0 0 0 0
+// 0 0 0 0 1 //[4,4] -> [2,2] // 4
+// OutputCopy
+// 1
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int func(){
+  int arr[5][5] = {
+  {0, 0, 0, 0, 0},
+  {0, 0, 0, 0, 1}, //[1,4]
+  {0, 0, 0, 0, 0},//[2,2]
+  {0, 0, 0, 0, 0},
+  {0, 0, 0, 0, 0}
+  };
+//approach: would be to calc all the possible costs, then calc the min
+  int min_cost_mid = INT_MAX;
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+      if(arr[i][j] == 1){
+        int min_cost_mid = abs(i-2) + abs(j-2);
+        return min_cost_mid;
+      }
+    }
+  }
+}
+
+int main(){
+  cout << func();
+  return 0;
+}
+
+
+
+
+
+
